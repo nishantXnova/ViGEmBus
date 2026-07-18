@@ -1,4 +1,4 @@
-; Virtual Gamepad Emulation Framework - Windows kernel-mode bus driver
+; GameBus - Windows kernel-mode bus driver
 ; 
 ; BSD 3-Clause License
 ; 
@@ -36,19 +36,19 @@ Signature="$WINDOWS NT$"
 Class=System
 ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider=%ManufacturerName%
-CatalogFile=ViGEmBus.cat
+CatalogFile=GameBus.cat
 DriverVer= ;
 PnpLockdown=1
 
 [DestinationDirs]
 DefaultDestDir = 12
-ViGEmBus_Device_CoInstaller_CopyFiles = 11
+GameBus_Device_CoInstaller_CopyFiles = 11
 
 [SourceDisksNames]
 1 = %DiskName%,,,
 
 [SourceDisksFiles]
-ViGEmBus.sys = 1,,
+GameBus.sys = 1,,
 WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll = 1
 
 ;*****************************************
@@ -59,54 +59,54 @@ WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll = 1
 %ManufacturerName%=Standard,NTamd64,NTx86,NTARM64
 
 [Standard.NTamd64]
-%ViGEmBus.DeviceDesc%=ViGEmBus_Device, Nefarius\ViGEmBus\Gen1
+%GameBus.DeviceDesc%=GameBus_Device, GameBus\Gen1
 
 [Standard.NTx86]
-%ViGEmBus.DeviceDesc%=ViGEmBus_Device, Nefarius\ViGEmBus\Gen1
+%GameBus.DeviceDesc%=GameBus_Device, GameBus\Gen1
 
 [Standard.NTARM64]
-%ViGEmBus.DeviceDesc%=ViGEmBus_Device, Nefarius\ViGEmBus\Gen1
+%GameBus.DeviceDesc%=GameBus_Device, GameBus\Gen1
 
-[ViGEmBus_Device.NT]
+[GameBus_Device.NT]
 CopyFiles=Drivers_Dir
 
 [Drivers_Dir]
-ViGEmBus.sys
+GameBus.sys
 
 ;-------------- Service installation
-[ViGEmBus_Device.NT.Services]
-AddService = ViGEmBus,%SPSVCINST_ASSOCSERVICE%, ViGEmBus_Service_Inst
+[GameBus_Device.NT.Services]
+AddService = GameBus,%SPSVCINST_ASSOCSERVICE%, GameBus_Service_Inst
 
-; -------------- ViGEmBus driver install sections
-[ViGEmBus_Service_Inst]
-DisplayName    = %ViGEmBus.SVCDESC%
+; -------------- GameBus driver install sections
+[GameBus_Service_Inst]
+DisplayName    = %GameBus.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 1               ; SERVICE_SYSTEM_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\ViGEmBus.sys
+ServiceBinary  = %12%\GameBus.sys
 
 ;
-;--- ViGEmBus_Device Coinstaller installation ------
+;--- GameBus_Device Coinstaller installation ------
 ;
 
-[ViGEmBus_Device.NT.CoInstallers]
-AddReg=ViGEmBus_Device_CoInstaller_AddReg
-CopyFiles=ViGEmBus_Device_CoInstaller_CopyFiles
+[GameBus_Device.NT.CoInstallers]
+AddReg=GameBus_Device_CoInstaller_AddReg
+CopyFiles=GameBus_Device_CoInstaller_CopyFiles
 
-[ViGEmBus_Device_CoInstaller_AddReg]
+[GameBus_Device_CoInstaller_AddReg]
 HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
 
-[ViGEmBus_Device_CoInstaller_CopyFiles]
+[GameBus_Device_CoInstaller_CopyFiles]
 WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
 
-[ViGEmBus_Device.NT.Wdf]
-KmdfService =  ViGEmBus, ViGEmBus_wdfsect
-[ViGEmBus_wdfsect]
+[GameBus_Device.NT.Wdf]
+KmdfService =  GameBus, GameBus_wdfsect
+[GameBus_wdfsect]
 KmdfLibraryVersion = $KMDFVERSION$
 
 [Strings]
 SPSVCINST_ASSOCSERVICE= 0x00000002
-ManufacturerName="Nefarius Software Solutions e.U."
-DiskName = "Nefarius ViGEmBus Installation Disk"
-ViGEmBus.DeviceDesc = "Nefarius Virtual Gamepad Emulation Bus"
-ViGEmBus.SVCDESC = "Nefarius Virtual Gamepad Emulation Service"
+ManufacturerName="GameBus"
+DiskName = "GameBus Installation Disk"
+GameBus.DeviceDesc = "GameBus Virtual Controller Bus"
+GameBus.SVCDESC = "GameBus Virtual Controller Service"

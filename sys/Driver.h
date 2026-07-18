@@ -46,7 +46,7 @@
 
 #pragma region Macros
 
-#define DRIVERNAME                      "ViGEm: "
+#define DRIVERNAME                      "GameBus: "
 
 #pragma endregion
 

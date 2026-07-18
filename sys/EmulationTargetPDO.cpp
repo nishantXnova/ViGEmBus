@@ -43,7 +43,7 @@
 #include <usbiodef.h>
 
 
-PCWSTR ViGEm::Bus::Core::EmulationTargetPDO::_deviceLocation = L"Virtual Gamepad Emulation Bus";
+PCWSTR ViGEm::Bus::Core::EmulationTargetPDO::_deviceLocation = L"GameBus";
 
 NTSTATUS ViGEm::Bus::Core::EmulationTargetPDO::PdoCreateDevice(WDFDEVICE ParentDevice, PWDFDEVICE_INIT DeviceInit)
 {

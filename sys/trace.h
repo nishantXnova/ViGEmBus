@@ -41,7 +41,7 @@
 
 #define WPP_CONTROL_GUIDS                                              \
     WPP_DEFINE_CONTROL_GUID(                                           \
-        ViGEmBusTraceGuid, (c5ce18fe,27bd,4049,b0b4,8a47cab1dcd9),     \
+        ViGEmBusTraceGuid, (db17ec3a,717a,42a7,b988,9e76a8d0e4e9),     \
                                                                        \
         WPP_DEFINE_BIT(MYDRIVER_ALL_INFO)                              \
         WPP_DEFINE_BIT(DMF_TRACE)                                      \

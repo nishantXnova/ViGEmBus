@@ -41,7 +41,7 @@
 #include <ntstrsafe.h>
 
 
-PCWSTR ViGEm::Bus::Targets::EmulationTargetDS4::_deviceDescription = L"Virtual DualShock 4 Controller";
+PCWSTR ViGEm::Bus::Targets::EmulationTargetDS4::_deviceDescription = L"GameBus Virtual DualShock 4 Controller";
 
 ViGEm::Bus::Targets::EmulationTargetDS4::EmulationTargetDS4(ULONG Serial, LONG SessionId, USHORT VendorId,
 	USHORT ProductId) : EmulationTargetPDO(

@@ -83,7 +83,7 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING Registry
 	WDFDRIVER               driver;
 	WDF_OBJECT_ATTRIBUTES   attributes;
 
-	KdPrint((DRIVERNAME "Virtual Gamepad Emulation Bus Driver [built: %s %s]\n", __DATE__, __TIME__));
+	KdPrint((DRIVERNAME "GameBus Virtual Controller Driver [built: %s %s]\n", __DATE__, __TIME__));
 
 	//
 	// Initialize WPP Tracing
